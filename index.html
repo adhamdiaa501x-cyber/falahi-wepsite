@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر المنتجات الفلاحية والاصيلة</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content container">
+            <div class="brand-block">
+                <span class="brand-mark">م</span>
+                <div>
+                    <p class="brand-tag">من المزرعة إلى المائدة</p>
+                    <h1>مخبوزات ومنتجات أصيلة</h1>
+                </div>
+            </div>
+
+            <button class="cart-icon-container" type="button" onclick="toggleCartModal()" aria-label="فتح السلة">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="container hero-inner">
+            <div class="hero-copy">
+                <p class="hero-badge">عناية ودفء في كل قطعة</p>
+                <h2>منتجات فلاحيّة طازجة، مخبوزات يدويّة، وطلب سريع</h2>
+                <p>اختر ما تريد من المخبوزات والمنتجات الأصيله، ثم أرسل طلبك مباشرة عبر واتساب.</p>
+
+                <div class="hero-features">
+                    <span><i class="fas fa-seedling"></i> مكونات طبيعية</span>
+                    <span><i class="fas fa-bread-slice"></i> خبز طازج</span>
+                    <span><i class="fas fa-truck"></i> توصيل سريع</span>
+                </div>
+            </div>
+
+            <div class="hero-visual" aria-label="صورة خبز ومخبوزات">
+                <div class="hero-image-card">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80" alt="مخبوزات وفطائر" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <h2 class="section-title">قائمة المنتجات الفلاحية</h2>
+        <div id="products-grid" class="products-grid"></div>
+    </main>
+
+    <section id="cart-section" class="cart-section container">
+        <h2>سلة المشتريات</h2>
+        <div id="cart-items">
+            <p class="empty-cart">السلة فارغة حالياً...</p>
+        </div>
+
+        <div class="cart-summary">
+            الإجمالي: <span id="cart-total">0</span> ج.م
+        </div>
+
+        <div class="form-block">
+            <label for="customer-name">
+                👤 اسم العميل:
+            </label>
+            <input id="customer-name" type="text" placeholder="اكتب اسمك الكامل...">
+        </div>
+
+        <div class="form-block">
+            <label for="customer-phone">
+                📞 رقم الهاتف:
+            </label>
+            <input id="customer-phone" type="tel" placeholder="اكتب رقم الهاتف...">
+        </div>
+
+        <div class="form-block">
+            <label for="delivery-address">
+                📍 عنوان التوصيل:
+            </label>
+            <textarea id="delivery-address" placeholder="اكتب عنوان التوصيل بالتفصيل..." rows="2"></textarea>
+        </div>
+
+        <div class="form-block payment-block">
+            <label>💳 طريقة الدفع:</label>
+            <div class="payment-options">
+                <label class="payment-option">
+                    <input type="radio" name="payment-method" value="كاش عند الاستلام" checked>
+                    <span>كاش</span>
+                </label>
+                <label class="payment-option">
+                    <input type="radio" name="payment-method" value="إنستا باي">
+                    <span>إنستا باي</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="special-notes-wrapper">
+            <label for="special-notes">
+                ✍️ ملاحظات / طلب خاص (مثال: سمن بلدي صافي، تسوية خفيفة...):
+            </label>
+            <textarea id="special-notes" placeholder="اكتب أي ملاحظات هنا..." rows="3"></textarea>
+        </div>
+
+        <button onclick="sendOrderToWhatsApp()" class="whatsapp-btn" type="button">
+            <i class="fab fa-whatsapp"></i> إرسال الطلب عبر واتساب
+        </button>
+    </section>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
